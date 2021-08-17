@@ -38,7 +38,7 @@
     <tr th:each="board : ${boards}">
       <td th:text="${board.id}">M</td>
       <td><a th:href="@{/board/form(id=${board.id})}" th:text="${board.title}"></a></td>
-      <td>이런 값은 아직 없습니다..</td>
+      <td th:text="${board.user.username}">작성자</td>
     </tr>
   </table>
   <nav aria-label="Page navigation example">
