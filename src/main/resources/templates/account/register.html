@@ -1,5 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -18,9 +19,9 @@
 <body class="text-center">
 <main class="form-signin">
 
-  <form th:action="@{/account/login}" method="post">
+  <form th:action="@{/account/register}" method="post">
     <a th:href="@{/}"><img src="../../static/img/tako.png" th:src="@{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpmQJTTTQfKvDhkMpGfu_kphhPopy0glrKtg&usqp=CAU}" alt="" width="72" height="57"/></a>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">회원가입</h1>
     <div class="form-floating">
       <input type="text" class="form-control" id="username" name="username" placeholder="username">
       <label for="username">username</label>
