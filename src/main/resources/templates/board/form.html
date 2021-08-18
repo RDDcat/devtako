@@ -1,0 +1,53 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace='fragments/head :: head'>
+</head>
+<body>
+<nav class="container d-flex flex-column flex-md-row justify-content-between" th:replace="fragments/menu :: menu"></nav>
+
+
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <h1 class="display-4 fw-normal">게시판</h1>
+  <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+</div>
+
+<form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
+  <input type="hidden" th:field="*{id}">
+  <div class="mb-3">
+    <label for="title" class="form-label">제목</label>
+    <input type="text" class="form-control" id="title" placeholder="write title" th:field="*{title}"
+    th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+      제목이 부적합합니다
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="content" class="form-label">내용</label>
+    <textarea class="form-control" id="content" rows="3" th:field="*{content}"
+              th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
+      내용이 부적합합니다
+    </div>
+  </div>
+  <div class="text-right">
+    <a type="button" class="btn btn-primary" th:href="@{/board/list}">취소</a>
+    <button type="submit" class="btn btn-primary">확인</button>
+  </div>
+</form>
+
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
