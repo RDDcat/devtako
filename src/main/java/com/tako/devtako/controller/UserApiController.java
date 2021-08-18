@@ -1,5 +1,6 @@
 package com.tako.devtako.controller;
 
+import com.tako.devtako.domain.Board;
 import com.tako.devtako.domain.User;
 import com.tako.devtako.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,10 @@ public class UserApiController {
                 .map(user -> {
 //                    user.setTitle(newUser.getTitle());
 //                    user.setContent(newUser.getContent());
-                    
+                    user.setBoards(newUser.getBoards());
+                    for(Board board : user.getBoards()){
+                        board.setUser(user);
+                    }
                     return repository.save(user);
                 })
                 .orElseGet(() -> {
